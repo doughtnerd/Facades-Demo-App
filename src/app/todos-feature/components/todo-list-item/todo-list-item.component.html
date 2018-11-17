@@ -1,0 +1,25 @@
+<mat-list-item class="row">
+  <div class="col-md-1">
+      <div *ngIf="!item.complete; else complete">
+        <button mat-icon-button (click)="checkboxClicked()">
+          <mat-icon>check_box_outline_blank</mat-icon>
+        </button>
+      </div>
+
+      <ng-template #complete>
+        <div>
+          <button mat-icon-button (click)="checkboxClicked()">
+            <mat-icon>check_box</mat-icon>
+          </button>
+        </div>
+      </ng-template>
+  </div>
+  <div class="col-md-7">
+      <span><b>{{item.title}}</b></span>
+  </div>
+  <div class="col-md-4">
+    <button mat-button color="secondary" (click)="editClicked()">Edit</button>
+    <button mat-raised-button color="warn" (click)="deleteClicked()">Delete</button>
+  </div>
+  <!-- <mat-divider></mat-divider> -->
+</mat-list-item>

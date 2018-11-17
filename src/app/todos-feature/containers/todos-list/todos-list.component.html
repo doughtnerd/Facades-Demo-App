@@ -1,0 +1,10 @@
+<button id="add-todo" mat-raised-button color="primary" type="button" (click)="onAddTodo()">Add Todo</button>
+<mat-list class="container">
+  <app-todo-list-item
+    *ngFor="let item of todoService.todos$ | async as todos"
+    [item]="item"
+    (deleteEvent)="todoService.removeTodo($event)"
+    (editEvent)="onEditTodo($event)"
+    (checkboxEvent)="todoService.toggleTodoCompletionStatus($event)"
+  ></app-todo-list-item>
+</mat-list>

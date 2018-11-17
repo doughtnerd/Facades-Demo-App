@@ -13,6 +13,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { APP_BASE_HREF } from '@angular/common';
     HttpClientModule,
     MatCardModule,
     MatToolbarModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([])
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' }
