@@ -7,9 +7,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { TodosEffects } from './store/effects/todos.effects';
 import { TodosListComponent } from './containers/todos-list/todos-list.component';
 import { TodosHttpService } from './services/todos-http.service';
-import { TodoResolver } from './resolvers/todo.resolver';
-import { TodosLoader } from './resolvers/todos.resolver';
-import { TodosService } from './services/todos-service.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TodosFeatureRoutingModule } from './todos-feature-routing.module';
 
@@ -20,13 +17,16 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { TodoItemViewComponent } from './containers/todo-item-view/todo-item-view.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { TodoEditViewComponent } from './containers/todo-edit-view/todo-edit-view.component';
+import { TodoAddViewComponent } from './containers/todo-add-view/todo-add-view.component';
 
 @NgModule({
   declarations: [
     TodosListComponent,
     TodoListItemComponent,
-    TodoItemViewComponent
+    TodoEditViewComponent,
+    TodoAddViewComponent
   ],
   imports: [
     CommonModule,
@@ -40,15 +40,13 @@ import { TodoItemViewComponent } from './containers/todo-item-view/todo-item-vie
     MatInputModule,
     MatSlideToggleModule,
     MatGridListModule,
+    MatProgressSpinnerModule,
 
     StoreModule.forFeature('Todos', reducer),
     EffectsModule.forFeature([TodosEffects]),
   ],
   providers: [
-    TodosService,
     TodosHttpService,
-    TodoResolver,
-    TodosLoader
   ]
 })
 export class TodosFeatureModule { }

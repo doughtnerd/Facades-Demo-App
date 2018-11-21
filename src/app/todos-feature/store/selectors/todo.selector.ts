@@ -12,3 +12,8 @@ export const getTodosLoaded = createSelector(
   getTodoState,
   (state) => state.loaded
 );
+
+export const getTodo = createSelector(
+  getTodoState,
+  (state, props) => state.todos.filter(item => item.id === props.id)[0]
+);

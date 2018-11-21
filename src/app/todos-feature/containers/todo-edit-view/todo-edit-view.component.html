@@ -2,7 +2,7 @@
 <form class="container" (ngSubmit)="onSubmit()" [formGroup]="formGroup">
   <div class="row">
     <div class="col-md-12 text-center">
-      <h1>{{title}}</h1>
+      <h1>Edit Todo</h1>
     </div>
   </div>
   <div class="row">
@@ -19,7 +19,6 @@
       <mat-slide-toggle
         labelPosition="before"
         formControlName="complete"
-        [hidden]="!isEditMode"
       >Complete</mat-slide-toggle>
     </div>
   </div>
